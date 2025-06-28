@@ -1,0 +1,11 @@
+{% set classes = ['from', 'to'] %}
+{% for i in range(0, 5) %}
+    {% set classIndex = random(0,1) %}
+    <div
+        class="message {{ classes[classIndex] }} skeleton"
+    >
+
+    </div>
+
+{% endfor %}
+

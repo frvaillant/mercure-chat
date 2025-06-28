@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "baseUrl": "./assets",
+        "paths": {
+            "@/*": ["js/*"],
+            "@controllers/*": ["controllers/*"]
+        }
+    },
+    "include": ["assets/js", "assets/controllers"]
+}

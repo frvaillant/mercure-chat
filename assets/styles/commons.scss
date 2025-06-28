@@ -1,0 +1,34 @@
+body {
+    background: #181818;
+    min-height: 100vh;
+    .hs-100 {
+        min-height: 100vh;
+    }
+    .users-list {
+
+        a {
+            width: max-content;
+            .avatar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #ddefec;
+                border: 2px solid #ababab;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-top: 7px;
+            }
+            .username {
+                font-size: 1.1rem;
+                font-weight: bold;
+            }
+        }
+
+    }
+
+}
+
+.fadeout {
+    animation: fadeout 1s ease-in-out;
+}

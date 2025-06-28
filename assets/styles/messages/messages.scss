@@ -1,0 +1,116 @@
+
+
+.conversation {
+
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+
+    width: 90%;
+    @media screen and (min-width: 960px) {
+        width: 50%;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+    .messages {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 20px 20px;
+        background: white;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+
+        .avatar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ddefec;
+            border: 2px solid #ababab;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-top: 7px;
+        }
+
+        .message {
+            position: relative;
+            display: block;
+            max-width: 65%;
+            width: max-content;
+            min-width: 50px;
+            padding: 10px;
+            border-radius: 8px;
+
+            &:before {
+                position: absolute;
+                bottom: 100%;
+                margin-bottom: -3px;
+                left: 5px;
+                width: max-content;
+                color: #c7c7c7;
+                font-size: 0.7rem;
+                content: attr(data-date);
+            }
+
+            &.from {
+                align-self: start;
+                background: #77d7c9;
+                background: linear-gradient(0, #77d7c9, #77d7c9, #adefe5);
+                text-align: left;
+            }
+
+            &.to {
+                align-self: end;
+                background: linear-gradient(0, #84d777, #84d777, #b4ecab);
+                text-align: right;
+            }
+
+            &.pulse {
+                animation: pulse 1s ease-in-out infinite;
+                width: 20%;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+                height: 44px;
+                max-height: 44px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &.skeleton {
+                background: linear-gradient(0, #cbcbcb, #cbcbcb, #efefef);
+                width: 65%;
+                height: 44px;
+                animation: pulse 1s ease-in-out infinite;
+            }
+        }
+    }
+
+    form {
+        width: 100%;
+        margin-top:20px;
+        textarea {
+            height: 50px;
+            background: #dee2e6;
+            border-radius: 6px;
+        }
+
+        button {
+            display: flex;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+    }
+}
+
