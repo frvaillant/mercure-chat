@@ -17,11 +17,13 @@ et ajoutez le dossier du projet, ou son dossier parent.
 `git clone https://github.com/frvaillant/mercure-chat folder-name`  
 `cd folder-name`  
 `make init`  
+N.B : Vous aurez besoin de saisir votre mot de passe "sudo" pour l'installation des hosts (chat.test et mercure.chat.test);  
+Voir le [Makefile](makefile) L35 à 42
 Cela devrait se conclure par :  
-🎉 Projet initialisé avec succès ! Rendez-vous sur http://localhost
+🎉 Projet initialisé avec succès ! Rendez-vous sur http://chat.test
 
 ## Utilisation  
-Une fois le projet installé, rendez-vous sur http://localhost  
+Une fois le projet installé, rendez-vous sur http://chat.test  
 Le projet définit 2 utilisateurs par défaut : user_1 et user_2, 
 tous deux avec le mot de passe 123456.  
 
@@ -36,6 +38,9 @@ Vous pouvez tester.
 
 Pour arrêter le projet : 
 `docker compose stop`  
+
+Pour arrêter le projet et supprimer les conteneurs :
+`make down`
 
 Pour redémarrer :
 `docker compose start`

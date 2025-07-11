@@ -12,7 +12,7 @@ check-docker:
 	@echo "✅ Docker est disponible et fonctionne."
 
 # Commande : make init
-init: check-docker
+init: check-docker add-host
 	@echo "🔧 Initialisation du projet..."
 	@test -f $(ENV_FILE) || cp .env $(ENV_FILE)
 	@echo "Build container"
@@ -30,7 +30,16 @@ init: check-docker
 	@echo "Add users in database"
 	docker compose exec php bin/console app:add:user
 
-	@echo "\033[32m🎉 Projet initialisé avec succès ! Rendez-vous sur http://localhost \033[0m"
+	@echo "\033[32m🎉 Projet initialisé avec succès ! Rendez-vous sur http://chat.test \033[0m"
+
+add-host:
+	@echo "🧩 Vérification de /etc/hosts pour 'chat.test' et 'mercure.chat.test'"
+	@if ! grep -qE '127\.0\.0\.1[[:space:]]+.*\bchat\.test\b' /etc/hosts; then \
+		echo "🔧 Ajout de 'chat.test' et 'mercure.chat.test' à /etc/hosts (nécessite sudo)"; \
+		echo "127.0.0.1 chat.test mercure.chat.test" | sudo tee -a /etc/hosts > /dev/null; \
+	else \
+		echo "✅ 'chat.test' et 'mercure.chat.test' sont déjà dans /etc/hosts"; \
+	fi
 
 # Commande : make down
 down:
